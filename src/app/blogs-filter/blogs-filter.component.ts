@@ -21,6 +21,7 @@ export class BlogsFilterComponent implements OnInit {
   ngOnInit(): void {}
 
   filterResults() {
+    debugger;
     this.blogsService.updateFilter(this.blogForm.value);
   }
 

@@ -11,7 +11,9 @@ const BASE_PATH = environment.basePath;
 })
 export class BlogsService {
   blogs$ = this.http.get<Blog[]>(`${BASE_PATH}/posts`).pipe(catchError((error) => of([])));
-  private blogRecipeSubject = new BehaviorSubject<Blog>({});
+  private blogRecipeSubject = new BehaviorSubject<Blog>({ title: '' });
+  filterBlogsAction$ = this.blogRecipeSubject.asObservable();
+
   constructor(private http: HttpClient) {}
 
   updateFilter(criteria: Blog) {

@@ -1,25 +1,18 @@
-<div *ngIf="blogs$ | async as blogs" class="card">
+<div *ngIf="filteredBlogs$ | async as blogs" class="card">
   <div class="result">{{ blogs.length }} Results</div>
-  <p-dataView
-    #dv
-    [value]="blogs"
-    [paginator]="true"
-    [rows]="9"
-    filterBy="title"
-    layout="grid"
-  >
+  <p-dataView #dv [value]="blogs" [paginator]="true" [rows]="9" filterBy="title" layout="grid">
     <ng-template let-blog pTemplate="gridItem">
       <div class="p-col-12 p-md-3">
         <div class="blog-grid-item card">
           <div class="blog-grid-item-top">
             <div>
               <i class="pi pi-file recipe-category-icon"></i>
-              <span class="recipe-category">{{ blog.title }}</span>
+              <span class="blog-category">{{ blog.title }}</span>
             </div>
           </div>
           <div class="blog-grid-item-content">
             <div>
-              <span class="recipe-category">{{ blog.body }}</span>
+              <span class="blog-category">{{ blog.body }}</span>
             </div>
           </div>
         </div>
